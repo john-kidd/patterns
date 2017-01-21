@@ -1,7 +1,8 @@
 # workflow
 
-Workflow provided a pattern for chaining functions together. The pattern
-offers 3 variations:
+Workflow provides a pattern for chaining functions together. 
+
+The pattern offers 3 variations:
 
 1. runAll
 takes a set of functions and runs all returning a result with any errors
