@@ -1,11 +1,11 @@
 import expect from 'expect';
-import { Request } from "./request";
+import { Result } from "./result";
 
 describe("Request", () => {
     it("should return error message when error provided", () => {
         // arrange
         const errorStub = "an error";
-        const target = new Request(errorStub);
+        const target = new Result(errorStub);
 
         // act
         const actual = target.getError();

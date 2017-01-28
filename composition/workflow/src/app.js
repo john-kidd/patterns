@@ -1,7 +1,7 @@
-import { Request } from "./request";
+import { Result } from "./result";
 
-const request = new Request("an error has ocurred!");
+const result = new Result("an error has ocurred!");
 
-document.write(request.success().toString());
+document.write(result.success().toString());
 
-console.log(request.getError());
+console.log(result.getError());

@@ -1,4 +1,4 @@
-export class Request {
+export class Result {
     constructor(error = "") {
         this.error = error;
     }
