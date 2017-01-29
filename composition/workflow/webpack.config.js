@@ -1,7 +1,7 @@
 module.exports = {
     entry: "./src/app.js",
     output: {
-        path: `${__dirname}\distro`,
+        path: __dirname + "/distro",
         filename: "bundle.js"
     },
     watch: true,
