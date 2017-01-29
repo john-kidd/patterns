@@ -1,9 +1,11 @@
 module.exports = {
-    entry: "./app.js",
+    entry: "./src/app.js",
     output: {
+        path: `${__dirname}\distro`,
         filename: "bundle.js"
     },
     watch: true,
+    devtool: 'inline-source-map',
     module: {
         preloaders: [
             {

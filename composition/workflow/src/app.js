@@ -1,4 +1,5 @@
 import { Result } from "./result";
+import { runAll } from "./workflow";
 
 const result = new Result("an error has ocurred!");
 
