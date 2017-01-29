@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack & webpack-dev-server",
     "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.spec.js\""
   },
   "author": "John F Kidd",
