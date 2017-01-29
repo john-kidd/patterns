@@ -24,7 +24,7 @@ describe("runAll", () => {
         const expected = "";
 
         // act
-        const result = runAll(data, [validateName]);
+        const result = runAll(data, [validateName, validateEmail]);
         const actual = result.getError();
 
         // assert
@@ -33,11 +33,11 @@ describe("runAll", () => {
 
     it("should return that we have an invalid name", () => {
         // arrange
-        const data = { name: null };
+        const data = { name: null, emailAddress: "john@test.com" };
         const expected = INVALID_NAME;
 
         // act
-        const result = runAll(data, [validateName]);
+        const result = runAll(data, [validateName, validateEmail]);
         const actual = result.getError();
 
         // assert
