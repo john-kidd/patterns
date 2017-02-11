@@ -57,7 +57,7 @@ describe("runUntilFirstFault", () => {
         expect(expected).toEqual(actual);
     })
 
-    it("should return that we have an invalid name and an invalid aemail address", () => {
+    it("should return that we have an invalid name", () => {
         // arrange
         const data = { name: null, emailAddress: null };
         const expected = INVALID_NAME;
