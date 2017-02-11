@@ -1,6 +1,7 @@
 export class Result {
-    constructor(error = "") {
+    constructor(error = "", data = null) {
         this.error = error;
+        this.data = data;
     }
 
     success() {
@@ -9,5 +10,9 @@ export class Result {
 
     getError() {
         return this.error;
+    }
+
+    getData() {
+        return this.data;
     }
 }

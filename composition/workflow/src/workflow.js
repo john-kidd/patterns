@@ -3,11 +3,13 @@ import _ from 'lodash';
 
 export function runAll(data, funcs) {
     const errors = [];
+    let copy = Object.assign({}, data);
     _.forEach(funcs, (f) => {
-        const result = f(data);
+        const result = f(copy);
+        copy = result.getData();
         if (!result.success()) errors.push(result.getError());
     });
-    return new Result(errors.join("<br/>"));
+    return new Result(errors.join("<br/>"), copy);
 }
 
 export function runUntilFirstFault(data, funcs) {

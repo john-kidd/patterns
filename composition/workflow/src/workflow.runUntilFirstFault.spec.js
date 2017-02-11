@@ -29,7 +29,7 @@ describe("runUntilFirstFault", () => {
 
         // assert
         expect(expected).toEqual(actual);
-    })
+    });
 
     it("should return that we have an invalid name", () => {
         // arrange
@@ -42,7 +42,7 @@ describe("runUntilFirstFault", () => {
 
         // assert
         expect(expected).toEqual(actual);
-    })
+    });
 
     it("should return that we have an invalid email address", () => {
         // arrange
@@ -55,7 +55,7 @@ describe("runUntilFirstFault", () => {
 
         // assert
         expect(expected).toEqual(actual);
-    })
+    });
 
     it("should return that we have an invalid name", () => {
         // arrange
@@ -68,5 +68,5 @@ describe("runUntilFirstFault", () => {
 
         // assert
         expect(expected).toEqual(actual);
-    })
+    });
 });
