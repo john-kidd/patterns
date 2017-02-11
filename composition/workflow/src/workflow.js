@@ -13,13 +13,13 @@ export function runAll(data, funcs) {
 }
 
 export function runUntilFirstFault(data, funcs) {
-    function hasError(funcs) {
+    function hasError(data, funcs) {
         if (funcs.length === 0) return "";
         const result = funcs[0](data);
         if (!result.success()) return result.getError();
         funcs.shift();
-        return hasError(funcs);
+        return hasError(result.getData(), funcs);
     }
     
-    return new Result(hasError(funcs));
+    return new Result(hasError(data, funcs));
 }
