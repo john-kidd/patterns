@@ -1,5 +1,5 @@
 
-composition/workflow/bundle.js
+composition/pipeline/bundle.js
 npm-debug.log
 distro/
 *.log

@@ -1,5 +1,5 @@
 import { Result } from "./result";
-import { runAll } from "./workflow";
+import { runAll } from "./pipeline";
 
 const result = new Result("an error has ocurred!");
 

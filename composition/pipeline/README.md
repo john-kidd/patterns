@@ -1,6 +1,6 @@
-# workflow
+# pipeline
 
-Workflow provides a pattern for chaining functions together. 
+Pipeline provides a pattern for chaining functions together. 
 
 The pattern offers 3 variations:
 
