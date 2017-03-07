@@ -1,7 +1,5 @@
 package common
 
-import Result
-
 import scala.collection.mutable.ListBuffer
 
 object Pipeline {
