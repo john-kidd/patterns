@@ -9,22 +9,23 @@ object Pipeline {
 
   def runAll[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
     val errors = new ListBuffer[String]()
-    var x = data
+    var currentData = data
     funcs.foreach(f => {
-      val result = f(x)
+      val result = f(currentData)
       if (!result.success())
         errors += result.error
-      x = result.data
+      currentData = result.data
     })
-    Result(errors.toList.mkString("<br/>"), x)
+    Result(errors.toList.mkString("<br/>"), currentData)
   }
 
   def runUntilFirstFault[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
+    var result: Result[TData] = null
     funcs.foreach(f => {
-      val result = f(data)
+      result = f(data)
       if (!result.success())
-        Result(result.error, data)
+        return Result(result.error, result.data)
     })
-    Result("", data)
+    Result(data = result.data)
   }
 }

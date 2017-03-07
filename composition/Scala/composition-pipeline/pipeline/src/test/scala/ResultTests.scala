@@ -7,7 +7,7 @@ class ResultTests extends FunSpec {
   val EMAIL_ADDRESS_STUB = "jk@test.com"
 
   def updateNameWithEmail(person: Person): Result[Person] = {
-    return Result("", Person(person.name, EMAIL_ADDRESS_STUB))
+    return Result(data = Person(person.name, EMAIL_ADDRESS_STUB))
   }
 
   describe("Request") {
