@@ -2,6 +2,7 @@ package common
 
 import scala.collection.mutable.ListBuffer
 
+// NOTE: As we are using generics here we cannot use type inference so the code is a little verbose
 object Pipeline {
   case class Result[TData](error: String = "", data: TData = None) {
     def success() = error == ""

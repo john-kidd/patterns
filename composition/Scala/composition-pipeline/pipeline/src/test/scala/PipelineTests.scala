@@ -130,6 +130,32 @@ class PipelineTests extends FunSpec {
         // assert
         assert(expected == actual)
       }
+
+      it("should return that we have an invalid email address") {
+        // arrange
+        val personStub = Person(name = NAME_STUB)
+        val expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE
+
+        // act
+        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
+        val actual = result.error
+
+        // assert
+        assert(expected == actual)
+      }
+
+      it("should return that we have an invalid name and break") {
+        // arrange
+        val personStub = Person()
+        val expected = INVALID_NAME_MESSAGE
+
+        // act
+        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
+        val actual = result.error
+
+        // assert
+        assert(expected == actual)
+      }
     }
   }
 }

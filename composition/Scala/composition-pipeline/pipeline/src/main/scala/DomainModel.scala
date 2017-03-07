@@ -2,8 +2,8 @@ import common.Pipeline.Result
 import common.StringExtensions._
 import shared.StringExtensions._
 
-// An example of a domain model for an simple application. The idea is to provide sample methods that we can chain
-// together using the pipeline pattern.
+// INFO: An example of a domain model for an simple application. The idea is to provide sample methods that we can chain
+//       together using the pipeline pattern.
 object DomainModel {
   val INVALID_NAME_MESSAGE = "Invalid name"
   val EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE = "Email address format is incorrect"
