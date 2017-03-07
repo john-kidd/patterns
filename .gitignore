@@ -4,6 +4,6 @@ npm-debug.log
 distro/
 *.log
 
-composition/Scala/composition-pipline/.idea/**.*
-composition/Scala/.idea/**.*
-composition/Scala/**/*.iml
+composition/**/.idea/**.*
+composition/**/*.iml
+composition/**/target/**.*
