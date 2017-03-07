@@ -3,6 +3,10 @@ package common
 import scala.collection.mutable.ListBuffer
 
 object Pipeline {
+  case class Result[TData](error: String = "", data: TData = None) {
+    def success() = error == ""
+  }
+
   def runAll[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
     val errors = new ListBuffer[String]()
     var x = data

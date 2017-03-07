@@ -1,5 +1,5 @@
 import DomainModel.Person
-import common.Result
+import common.Pipeline.Result
 import org.scalatest.FunSpec
 
 class ResultTests extends FunSpec {
@@ -25,10 +25,10 @@ class ResultTests extends FunSpec {
 
     it ("should return the data") {
       // arrange
-      val personStub = Person(NAME_STUB, "")
+      val personStub = Person(name = NAME_STUB)
 
       // act
-      val target = new Result(null, personStub)
+      val target = new Result(data = personStub)
       val actual = target.data
 
       // assert
@@ -37,7 +37,7 @@ class ResultTests extends FunSpec {
 
     it ("should return an updated clone of the data") {
       // arrange
-      val personStub = Person(NAME_STUB, "")
+      val personStub = Person(name = NAME_STUB)
 
       // act
       val actual = updateNameWithEmail(personStub).data
@@ -48,7 +48,7 @@ class ResultTests extends FunSpec {
 
     it ("should return an clone of the data with additional field") {
       // arrange
-      val personStub = Person(NAME_STUB, "")
+      val personStub = Person(name = NAME_STUB)
       val expected = EMAIL_ADDRESS_STUB
 
       // act

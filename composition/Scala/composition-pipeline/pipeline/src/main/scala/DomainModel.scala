@@ -1,4 +1,4 @@
-import common.Result
+import common.Pipeline.Result
 import common.StringExtensions._
 import shared.StringExtensions._
 
