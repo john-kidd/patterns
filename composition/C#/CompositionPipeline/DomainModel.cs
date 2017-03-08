@@ -1,4 +1,6 @@
-﻿namespace CompositionPipeline
+﻿using static CompositionPipeline.StringExtensions;
+
+namespace CompositionPipeline
 {
 	public static class DomainModel
 	{
@@ -13,7 +15,7 @@
 		}
 
 		public static Result<Person> ValidateEmailAddress(Person person) {
-			if (string.IsNullOrWhiteSpace(person.EmailAddress))
+			if (person.EmailAddress.IsValidEmailAddress())
 				return new Result<Person>(EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE, person);
 			return new Result<Person>(data: person);
 		}

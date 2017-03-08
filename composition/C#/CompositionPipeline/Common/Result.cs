@@ -17,6 +17,10 @@
 			private set;
 		}
 
-		public bool Success { get { return !string.IsNullOrEmpty(Error); } }
+		public bool Success { 
+			get { 
+				return string.IsNullOrEmpty(Error); 
+			} 
+		}
 	}
 }
