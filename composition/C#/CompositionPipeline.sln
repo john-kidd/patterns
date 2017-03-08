@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionPipeline", "CompositionPipeline\CompositionPipeline.csproj", "{EFDE2359-CE69-4D13-B209-94856462E1BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionPipeline.Tests", "CompositionPipeline.Tests\CompositionPipeline.Tests.csproj", "{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFDE2359-CE69-4D13-B209-94856462E1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFDE2359-CE69-4D13-B209-94856462E1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDE2359-CE69-4D13-B209-94856462E1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFDE2359-CE69-4D13-B209-94856462E1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

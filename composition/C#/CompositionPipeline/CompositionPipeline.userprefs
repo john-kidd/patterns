@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../CompositionPipeline.Tests/PipelineTests.cs">
+    <Files>
+      <File FileName="../CompositionPipeline.Tests/PipelineTests.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CompositionPipeline.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

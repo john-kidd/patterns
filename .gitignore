@@ -4,6 +4,20 @@ npm-debug.log
 distro/
 *.log
 
-composition/**/.idea/**.*
-composition/**/*.iml
-composition/**/target/**.*
+**/.idea/*
+**/*.iml
+**/target/*
+**/bin/*
+**/obj/*
+**/packages/*
+*.dll
+
+composition/C#/packages/NUnit.3.6.1/lib/MonoAndroid/nunit.framework.dll
+
+composition/C#/packages/NUnit.3.6.1/lib/MonoAndroid/nunit.framework.xml
+
+composition/C#/packages/NUnit.3.6.1/lib/net20/nunit.framework.dll
+
+composition/C#/packages/NUnit.3.6.1/lib/net20/nunit.framework.xml
+
+composition/C#/packages/NUnit.3.6.1/lib/net20/NUnit.System.Linq.dll

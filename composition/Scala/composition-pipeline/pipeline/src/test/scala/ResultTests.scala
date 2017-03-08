@@ -6,7 +6,7 @@ class ResultTests extends FunSpec {
   val NAME_STUB = "John Kidd"
   val EMAIL_ADDRESS_STUB = "jk@test.com"
 
-  def updateNameWithEmail(person: Person): Result[Person] = {
+  def updateEmailAddress(person: Person): Result[Person] = {
     return Result(data = Person(person.name, EMAIL_ADDRESS_STUB))
   }
 
@@ -40,7 +40,7 @@ class ResultTests extends FunSpec {
       val personStub = Person(name = NAME_STUB)
 
       // act
-      val actual = updateNameWithEmail(personStub).data
+      val actual = updateEmailAddress(personStub).data
 
       // assert
       assert(personStub != actual)
@@ -52,7 +52,7 @@ class ResultTests extends FunSpec {
       val expected = EMAIL_ADDRESS_STUB
 
       // act
-      val actual = updateNameWithEmail(personStub).data.emailAddress
+      val actual = updateEmailAddress(personStub).data.emailAddress
 
       // assert
       assert(expected == actual)
