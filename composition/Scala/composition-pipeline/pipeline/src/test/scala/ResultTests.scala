@@ -1,5 +1,5 @@
 import DomainModel.Person
-import common.Pipeline.Result
+import common.ActionPipeline.Result
 import org.scalatest.FunSpec
 
 class ResultTests extends FunSpec {

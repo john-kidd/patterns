@@ -1,8 +1,8 @@
-import common.Pipeline._
+import common.ActionPipeline._
 import DomainModel._
 import org.scalatest.FunSpec
 
-class PipelineTests extends FunSpec {
+class ActionPipelineTests extends FunSpec {
 
   val NAME_STUB = "John Kidd"
   val EMAIL_ADDRESS_STUB = "john@test.com"
@@ -48,7 +48,7 @@ class PipelineTests extends FunSpec {
         assert(expected == actual)
       }
 
-      it("should return that email address is in an incorrect format") {
+      it("should return that email address has an incorrect format") {
         // arrange
         val INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB = "john.com"
         val personStub = Person(NAME_STUB, INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB)
@@ -62,7 +62,7 @@ class PipelineTests extends FunSpec {
         assert(expected == actual)
       }
 
-      it("should return that we have an invalid name and an invalid email address") {
+      it("should return that we have an invalid name and the email address has an incorrect format") {
         // arrange
         val personStub = Person()
         val expected = s"$INVALID_NAME_MESSAGE<br/>$EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE"
@@ -131,7 +131,7 @@ class PipelineTests extends FunSpec {
         assert(expected == actual)
       }
 
-      it("should return that we have an invalid email address") {
+      it("should return that we the email address has an incorrect format") {
         // arrange
         val personStub = Person(name = NAME_STUB)
         val expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE

@@ -2,16 +2,15 @@ package common
 
 import scala.collection.mutable.ListBuffer
 
-// NOTE: As we are using generics here we cannot use type inference so the code is a little verbose
-object Pipeline {
+object ActionPipeline {
   case class Result[TData](error: String = "", data: TData = None) {
     def success() = error == ""
   }
 
-  def runAll[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
+  def runAll[TData](data: TData, actions: ((TData) => Result[TData])*): Result[TData] = {
     val errors = new ListBuffer[String]()
     var currentData = data
-    funcs.foreach(f => {
+    actions.foreach(f => {
       val result = f(currentData)
       if (!result.success())
         errors += result.error
@@ -20,12 +19,12 @@ object Pipeline {
     Result(errors.toList.mkString("<br/>"), currentData)
   }
 
-  def runUntilFirstFault[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
+  def runUntilFirstFault[TData](data: TData, actions: ((TData) => Result[TData])*): Result[TData] = {
     var result: Result[TData] = null
-    funcs.foreach(f => {
+    actions.foreach(f => {
       result = f(data)
       if (!result.success())
-        return Result(result.error, result.data)
+        return result
     })
     Result(data = result.data)
   }
