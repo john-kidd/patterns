@@ -33,6 +33,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\Result.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Common\Pipeline.cs" />
+    <Compile Include="DomainModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />

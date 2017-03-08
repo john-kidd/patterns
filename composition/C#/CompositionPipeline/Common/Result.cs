@@ -1,5 +1,4 @@
-﻿using System;
-namespace CompositionPipeline
+﻿namespace CompositionPipeline
 {
 	public class Result<TData>
 	{
