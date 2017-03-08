@@ -1,8 +1,8 @@
-import common.ActionPipeline._
+import common.Pipeline._
 import DomainModel._
 import org.scalatest.FunSpec
 
-class ActionPipelineTests extends FunSpec {
+class PipelineTests extends FunSpec {
 
   val NAME_STUB = "John Kidd"
   val EMAIL_ADDRESS_STUB = "john@test.com"

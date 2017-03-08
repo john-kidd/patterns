@@ -2,7 +2,7 @@ package common
 
 import scala.collection.mutable.ListBuffer
 
-object ActionPipeline {
+object Pipeline {
   case class Result[TData](error: String = "", data: TData = None) {
     def success() = error == ""
   }
