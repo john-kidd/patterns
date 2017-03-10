@@ -1,4 +1,5 @@
-﻿using static CompositionPipeline.StringExtensions;
+﻿using static CompositionPipeline.Shared.StringExtensions;
+using CompositionPipeline.Common;
 
 namespace CompositionPipeline
 {

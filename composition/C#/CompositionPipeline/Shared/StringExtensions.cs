@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace CompositionPipeline
+namespace CompositionPipeline.Shared
 {
 	public static class StringExtensions
 	{

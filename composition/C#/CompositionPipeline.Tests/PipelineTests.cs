@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using static CompositionPipeline.Pipeline;
+using static CompositionPipeline.Common.Pipeline;
 using static CompositionPipeline.DomainModel;
 using static NUnit.Framework.Assert;
 

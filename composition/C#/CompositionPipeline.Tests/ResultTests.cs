@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using static NUnit.Framework.Assert;
+using CompositionPipeline.Common;
 
 namespace CompositionPipeline.Tests
 {
@@ -9,7 +10,7 @@ namespace CompositionPipeline.Tests
 		const string NAME_STUB = "John Kidd";
 		const string EMAIL_ADDRESS_STUB = "jim.bob@waltons.com";
 
-		private static Result<Person> updateEmailAddress(Person person) {
+		static Result<Person> updateEmailAddress(Person person) {
 			return new Result<Person>(data: new Person(name: person.Name, emailAddress: EMAIL_ADDRESS_STUB));
 		}
 
@@ -61,7 +62,7 @@ namespace CompositionPipeline.Tests
 			var actual = updateEmailAddress(personStub).Data.EmailAddress;
 
 			// assert
-			AreEqual(expected, actual);			
+			AreEqual(expected, actual);
 		}
 	}
 }

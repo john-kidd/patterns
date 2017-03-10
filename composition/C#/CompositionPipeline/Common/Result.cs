@@ -1,4 +1,4 @@
-﻿namespace CompositionPipeline
+﻿namespace CompositionPipeline.Common
 {
 	public class Result<TData>
 	{
