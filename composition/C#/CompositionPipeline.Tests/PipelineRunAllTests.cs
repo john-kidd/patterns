@@ -6,7 +6,7 @@ using static NUnit.Framework.Assert;
 namespace CompositionPipeline.Tests
 {
 	[TestFixture]
-	public class PipelineTests
+	public class PipelineRunAllTests
 	{
 		const string NAME_STUB = "John Kidd";
 		const string EMAIL_ADDRESS_STUB = "john@test.com";

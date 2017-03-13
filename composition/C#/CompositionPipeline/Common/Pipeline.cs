@@ -22,5 +22,12 @@ namespace CompositionPipeline.Common
 			var reduced = funcs.Where(x => x != f);
 			ProcessNext(errors, result.Data, reduced);
 		}
+
+		public static Result<TData> runUntilFirstFault<TData>(TData data, params Func<TData, Result<TData>>[] funcs) {
+			foreach (var result in funcs.Select(f => f(data)).Where(result => !result.Success)) {
+				return result;
+			}
+			return new Result<TData>();     
+		}
 	}
 }

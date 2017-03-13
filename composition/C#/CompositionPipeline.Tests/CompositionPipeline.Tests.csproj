@@ -32,7 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ResultTests.cs" />
-    <Compile Include="PipelineTests.cs" />
+    <Compile Include="PipelineRunAllTests.cs" />
+    <Compile Include="PipelineRunUntilFirstFaultTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
