@@ -1,4 +1,4 @@
-package common
+package fund.common
 
 import scala.collection.mutable.ListBuffer
 
@@ -7,7 +7,7 @@ object Pipeline {
     def success() = error == ""
   }
 
-  def runAll[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
+  def runAll[TData](data: TData, funcs: List[((TData) => Result[TData])]): Result[TData] = {
     val errors = new ListBuffer[String]()
     var currentData = data
     funcs.foreach(f => {
@@ -19,7 +19,7 @@ object Pipeline {
     Result(errors.toList.mkString("<br/>"), currentData)
   }
 
-  def runUntilFirstFault[TData](data: TData, funcs: ((TData) => Result[TData])*): Result[TData] = {
+  def runUntilFirstFault[TData](data: TData, funcs: List[((TData) => Result[TData])]): Result[TData] = {
     var result: Result[TData] = null
     var currentData = data
     funcs.foreach(f => {

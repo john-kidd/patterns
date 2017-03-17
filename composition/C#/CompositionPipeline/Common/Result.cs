@@ -7,20 +7,10 @@
 			Error = error;
 		}
 
-		public string Error {
-			get;
-			private set;
-		}
+		public string Error { get; }
 
-		public TData Data {
-			get;
-			private set;
-		}
+		public TData Data { get; }
 
-		public bool Success { 
-			get { 
-				return string.IsNullOrEmpty(Error); 
-			} 
-		}
+		public bool Success { get { return string.IsNullOrEmpty(Error); } }
 	}
 }
