@@ -7,21 +7,21 @@ object PatchFundFixture {
   val FUND_NAME = "Cardano Fund A"
   val FUND_ID = 1
 
-  private var fundInDbStub = Fund(1, FUND_NAME, HEDGE_FUND_FUND_TYPE)
+  private var fundInDummyDb = Fund(1, FUND_NAME, HEDGE_FUND_FUND_TYPE)
 
   def getFund(fundId: Int): Fund = {
-    fundInDbStub
+    fundInDummyDb
   }
 
-  def update(updatedFund: Fund) = {
-    fundInDbStub = updatedFund
+  def writeToDb(updatedFund: Fund) = {
+    fundInDummyDb = updatedFund
   }
 
   def updateFund(editedFund: Fund): Result[Fund] = {
     val existing = getFund(editedFund.fundId)
     val updated = Result(data = Fund(existing.fundId, editedFund.fundName, editedFund.fundType))
 
-    update(updated.data)
+    writeToDb(updated.data)
 
     updated
   }
