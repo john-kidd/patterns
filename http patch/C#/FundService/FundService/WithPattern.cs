@@ -10,10 +10,8 @@ namespace FundService
     public static class WithPattern {
         public static void PatchFund(int id, List<PatchFundDto> instructions, Func<int, Fund> getFund, Func<Fund, Result<Fund>> updateFund) {
             var fund = getFund(id);
-            var funcs = new List<Func<Fund, Result<Fund>>> {
-                ValidateFundType,
-                ValidateFundName
-            };
+            var funcs = new List<Func<Fund, Result<Fund>>>();
+
             instructions.ForEach(instruction => {
                 switch (instruction.Path) {
                     case FUND_TYPE:
@@ -24,6 +22,9 @@ namespace FundService
                         break;
                 }
             });
+
+            funcs.Add(ValidateFundName);
+            funcs.Add(ValidateFundType);
 
             var result = RunUntilFirstFault(fund, funcs);
             switch (result.Success) {
