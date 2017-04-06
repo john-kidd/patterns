@@ -43,6 +43,17 @@ object DomainModel {
     apply
   }
 
+  def publishUpdate(data: Fund, logInfo: ((String) => Unit)) = {
+    val compensate = () => {
+      logInfo(s"message: revert fund [${data.fundId}]")
+    }
+    val apply = (data: Fund) => {
+      logInfo(s"message: update fund [${data.fundId}]");
+      Result(data = data, compensate = compensate)
+    }: Result[Fund]
+    apply
+  }
+
   def patchFund(id: Int, instructions: List[PatchFundDto], get: ((Int) => Fund), update: ((Fund) => Result[Fund])): Unit = {
     val fund = get(id)
     val funcs = ListBuffer[((Fund) => Result[Fund])](validateFundName, validateFundType)
