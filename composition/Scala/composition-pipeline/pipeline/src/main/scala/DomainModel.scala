@@ -37,4 +37,16 @@ object DomainModel {
     }: Result[Person]
     apply
   }
+
+  def publishUpdate(data: Person, logInfo: ((String) => Unit)) = {
+    val compensate = () => {
+      logInfo(s"message: revert person [${data.name}]")
+    }
+    val apply = (data: Person) => {
+      logInfo(s"message: update person [${data.name}]");
+      Result(data = data, compensate = compensate)
+    }: Result[Person]
+    apply
+  }
+
 }

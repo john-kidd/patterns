@@ -13,9 +13,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(NAME_STUB, EMAIL_ADDRESS_STUB)
         val expected = ""
+        val funcs = List[((Person) => Result[Person])](DomainModel.validateName, validateEmailAddress)
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress)
+        val result = runAll(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -26,9 +27,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(emailAddress = EMAIL_ADDRESS_STUB)
         val expected = INVALID_NAME_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress)
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress)
+        val result = runAll(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -39,9 +41,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(name = NAME_STUB)
         val expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress)
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress)
+        val result = runAll(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -53,9 +56,10 @@ class PipelineRunAllTests extends FunSpec {
         val INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB = "john.com"
         val personStub = Person(NAME_STUB, INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB)
         val expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress)
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress)
+        val result = runAll(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -66,9 +70,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person()
         val expected = s"$INVALID_NAME_MESSAGE<br/>$EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE"
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress)
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress)
+        val result = runAll(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -80,9 +85,10 @@ class PipelineRunAllTests extends FunSpec {
         val personStub = Person(NAME_STUB, EMAIL_ADDRESS_STUB)
         val NEW_NAME = "Jim Bob"
         val expected = NEW_NAME
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress, updateName(NEW_NAME))
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress, updateName(NEW_NAME))
+        val result = runAll(personStub, funcs)
         val actual = result.data.name
 
         // assert
@@ -94,9 +100,10 @@ class PipelineRunAllTests extends FunSpec {
         val personStub = Person(name = NAME_STUB)
         val NEW_EMAIL_ADDRESS = "jim@test.com"
         val expected = NEW_EMAIL_ADDRESS
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress, updateEmailAddress(NEW_EMAIL_ADDRESS))
 
         // act
-        val result = runAll(personStub, validateName, validateEmailAddress, updateEmailAddress(NEW_EMAIL_ADDRESS))
+        val result = runAll(personStub, funcs)
         val actual = result.data.emailAddress
 
         // assert
@@ -109,9 +116,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(NAME_STUB, EMAIL_ADDRESS_STUB)
         val expected = ""
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress)
 
         // act
-        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress)
+        val result = runUntilFirstFault(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -122,9 +130,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(emailAddress = EMAIL_ADDRESS_STUB)
         val expected = INVALID_NAME_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
 
         // act
-        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
+        val result = runUntilFirstFault(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -135,9 +144,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person(name = NAME_STUB)
         val expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
 
         // act
-        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
+        val result = runUntilFirstFault(personStub, funcs)
         val actual = result.error
 
         // assert
@@ -148,9 +158,10 @@ class PipelineRunAllTests extends FunSpec {
         // arrange
         val personStub = Person()
         val expected = INVALID_NAME_MESSAGE
+        val funcs = List[((Person) => Result[Person])](validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
 
         // act
-        val result = runUntilFirstFault(personStub, validateName, validateEmailAddress, updateName(NAME_STUB), updateEmailAddress(EMAIL_ADDRESS_STUB))
+        val result = runUntilFirstFault(personStub, funcs)
         val actual = result.error
 
         // assert

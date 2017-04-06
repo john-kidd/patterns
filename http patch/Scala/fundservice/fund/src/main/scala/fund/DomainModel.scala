@@ -56,7 +56,7 @@ object DomainModel {
 
   def patchFund(id: Int, instructions: List[PatchFundDto], get: ((Int) => Fund), update: ((Fund) => Result[Fund])): Unit = {
     val fund = get(id)
-    val funcs = ListBuffer[((Fund) => Result[Fund])](validateFundName, validateFundType)
+    val funcs = ListBuffer[((Fund) => Result[Fund])]()
 
     instructions.foreach(instruction => {
       instruction match {
@@ -64,6 +64,10 @@ object DomainModel {
         case instruction if instruction.path == "fundName" => funcs += patchFundName(fund, instruction)
       }
     })
+
+    funcs += publishUpdate(fund, println)
+    funcs += validateFundName
+    funcs += validateFundType
 
     runUntilFirstFault(fund, funcs.toList) match {
       case result if result.success() => update(result.data)
