@@ -43,7 +43,7 @@ object DomainModel {
       logInfo(s"message: revert person [${data.name}]")
     }
     val apply = (data: Person) => {
-      logInfo(s"message: update person [${data.name}]");
+      logInfo(s"message: update person [${data.name}]")
       Result(data = data, compensate = compensate)
     }: Result[Person]
     apply

@@ -16,9 +16,9 @@ namespace CompositionPipeline
 		}
 
 		public static Result<Person> ValidateEmailAddress(Person person) {
-			if (person.EmailAddress.IsValidEmailAddress())
-				return new Result<Person>(EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE, person);
-			return new Result<Person>(data: person);
-		}
+			if (person.EmailAddress.IsValidEmailAddress())				
+			    return new Result<Person>(data: person);
+            return new Result<Person>(EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE, person);
+        }
 	}
 }

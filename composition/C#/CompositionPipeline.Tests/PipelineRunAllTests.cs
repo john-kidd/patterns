@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using CompositionPipeline.Common;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using static CompositionPipeline.Common.Pipeline;
 using static CompositionPipeline.DomainModel;
 using static NUnit.Framework.Assert;
@@ -16,9 +19,10 @@ namespace CompositionPipeline.Tests
 			// arrange
 			var personStub = new Person(NAME_STUB, EMAIL_ADDRESS_STUB);
 			var expected = "";
+            var funcs = new List<Func<Person, Result<Person>>> { ValidateName, ValidateEmailAddress };
 
 			// act
-			var result = runAll(personStub, ValidateName, ValidateEmailAddress);
+			var result = RunAll(personStub, funcs);
 			var actual = result.Error;
 
 			// assert
@@ -31,9 +35,10 @@ namespace CompositionPipeline.Tests
 			const string INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB = "john.com";
 			var personStub = new Person(NAME_STUB, INCORRECTLY_FORMED_EMAIL_ADDRESS_STUB);
 			var expected = EMAIL_ADDRESS_FORMAT_IS_INCORRECT_MESSAGE;
+            var funcs = new List<Func<Person, Result<Person>>> { ValidateName, ValidateEmailAddress };
 
-			// act
-			var result = runAll(personStub, ValidateName, ValidateEmailAddress);
+            // act
+            var result = RunAll(personStub, funcs);
 			var actual = result.Error;
 
 			// assert

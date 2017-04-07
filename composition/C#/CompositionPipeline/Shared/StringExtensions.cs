@@ -7,7 +7,7 @@ namespace CompositionPipeline.Shared
 		const string emailRegEx = "^[^@]+@[^@]+\\.[^@]+$";
 
 		public static bool IsValidEmailAddress(this string s) {
-			return string.IsNullOrWhiteSpace(s) || !Regex.IsMatch(s, emailRegEx);
+			return !string.IsNullOrWhiteSpace(s) && Regex.IsMatch(s, emailRegEx);
 		}
 	}
 }
