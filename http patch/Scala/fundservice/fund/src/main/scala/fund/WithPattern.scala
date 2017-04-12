@@ -20,6 +20,7 @@ object WithPattern {
       }
     })
 
+    funcs += publishUpdate(fund, println)
     funcs += validateFundName
     funcs += validateFundType
 
