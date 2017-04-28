@@ -1,6 +1,6 @@
 package fund
 
-import fund.DomainModel.{Fund, PatchFundDto, validateFundName, validateFundType}
+import fund.DomainModel._
 import fund.PatchInstructionService.{patchFundName, patchFundType}
 import fund.common.Pipeline.Result
 import fund.common.SupportException
@@ -33,6 +33,9 @@ object NoPattern {
       }
     })
 
+    val publishUpdateResult = publishUpdate(currentData, println)(currentData);
+    if (!publishUpdateResult.success())
+      errors += publishUpdateResult.error
 
     val validateNameResult = validateFundName(currentData)
     if (!validateNameResult.success())
@@ -48,4 +51,5 @@ object NoPattern {
       case _ => update(currentData)
       case _ => throw new SupportException(errors.mkString("<br/>"))
     }
-  }}
+  }
+}

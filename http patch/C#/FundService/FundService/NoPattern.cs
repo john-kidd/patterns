@@ -9,11 +9,11 @@ namespace FundService
 {
     public static class NoPattern
     {
-        public static void PatchFund(int id, List<PatchFundDto> instructions, Func<int, Fund> getFund, Func<Fund, Result<Fund>> updateFund) {
+        public static void PatchFund(int id, IEnumerable<PatchFundDto> instructions, Func<int, Fund> getFund, Func<Fund, Result<Fund>> updateFund, string seperator = "<br/>") {
             var errors = new List<string>();
             Fund currentData = getFund(id);
 
-            instructions.ForEach(instruction => {
+            instructions.ToList().ForEach(instruction => {
                 switch (instruction.Path) {
                     case FUND_TYPE:
                         var patchFundTypeResult = PatchFundType(currentData, instruction)(currentData);
@@ -44,7 +44,7 @@ namespace FundService
 
             switch (errors.Any()) {
                 case true:
-                    throw new SupportException(string.Join("<br/>", errors));
+                    throw new SupportException(string.Join(seperator, errors));
                 case false:
                     updateFund(currentData);
                     break;

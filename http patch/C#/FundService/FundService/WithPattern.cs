@@ -8,11 +8,11 @@ using static FundService.Common.Pipeline;
 namespace FundService
 {
     public static class WithPattern {
-        public static void PatchFund(int id, List<PatchFundDto> instructions, Func<int, Fund> getFund, Func<Fund, Result<Fund>> updateFund) {
+        public static void PatchFund(int id, IEnumerable<PatchFundDto> instructions, Func<int, Fund> getFund, Func<Fund, Result<Fund>> updateFund) {
             var fund = getFund(id);
             var funcs = new List<Func<Fund, Result<Fund>>>();
 
-            instructions.ForEach(instruction => {
+            instructions.ToList().ForEach(instruction => {
                 switch (instruction.Path) {
                     case FUND_TYPE:
                         funcs.Add(PatchFundType(fund, instruction));

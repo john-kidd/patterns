@@ -6,7 +6,7 @@ namespace FundService.Common
 {
 	public static class Pipeline
 	{
-		public static Result<TData> RunAll<TData>(TData data, List<Func<TData, Result<TData>>> funcs) {
+		public static Result<TData> RunAll<TData>(TData data, IList<Func<TData, Result<TData>>> funcs) {
 			var errors = new List<string>();
             var compensators = new List<Action>();
 			var currentData = data;
@@ -25,7 +25,7 @@ namespace FundService.Common
 			return new Result<TData>();
 		}
 
-		public static Result<TData> RunUntilFirstFault<TData>(TData data, List<Func<TData, Result<TData>>> funcs) {
+		public static Result<TData> RunUntilFirstFault<TData>(TData data, IList<Func<TData, Result<TData>>> funcs) {
 			foreach (var result in funcs.Select(f => f(data)).Where(result => !result.Success)) {
                 result.Compensate();
 				return result;
