@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using static FundService.DomainModel;
 using static FundService.PatchInstructionService;
 using static FundService.Common.Pipeline;
+using System.Linq;
 
 namespace FundService
 {
