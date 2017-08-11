@@ -100,3 +100,4 @@ class PipelineRunAllTestCase(unittest.TestCase):
 
         # assert
         self.assertEqual(expected, actual)
+        self.assertNotEqual(person_stub.name, actual)

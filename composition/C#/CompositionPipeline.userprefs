@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{1CB80A0D-B9AE-4057-9261-6C0D771FDCFD}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CompositionPipeline/Common/Pipeline.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CompositionPipeline/DomainModel.cs">
     <Files>
-      <File FileName="CompositionPipeline/Common/Result.cs" Line="14" Column="69" />
+      <File FileName="CompositionPipeline/Common/Result.cs" Line="14" Column="1" />
       <File FileName="CompositionPipeline/Common/Pipeline.cs" Line="20" Column="4" />
-      <File FileName="CompositionPipeline.Tests/PipelineRunAllTests.cs" Line="27" Column="3" />
+      <File FileName="CompositionPipeline.Tests/PipelineRunAllTests.cs" Line="27" Column="13" />
       <File FileName="CompositionPipeline.Tests/Pipeline.runUntilFirstFault.Tests.cs" Line="10" Column="1" />
       <File FileName="CompositionPipeline.Tests/PipelineRunUntilFirstFaultTests.cs" Line="33" Column="14" />
       <File FileName="CompositionPipeline/DomainModel.cs" Line="1" Column="1" />
+      <File FileName="CompositionPipeline/Person.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
